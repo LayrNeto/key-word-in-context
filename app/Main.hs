@@ -1,10 +1,10 @@
-module Main where
-
+module Main (main) where
+  
 import KWIC
-import System.IO
+import System.IO()
 import Data.Char (toLower)
 import Control.Monad.State
-import qualified Data.Map as Map
+import Data.Map()
 
 main :: IO ()
 main = do

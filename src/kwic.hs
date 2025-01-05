@@ -7,9 +7,10 @@ module KWIC (
     srtd
 ) where
 
-import System.IO
+import System.IO()
 import Data.Char (toLower, isAlphaNum)
-import Data.List (sort)
+import Data.List (sortBy)
+import Data.Function (on)
 import qualified Data.Map as Map
 import Control.Monad.State
 
@@ -26,7 +27,8 @@ filterCharsInState = do
     let filtered = map filterChars phrases
     put filtered
   where
-    filterChars = map (\c -> if isAlphaNum c || c == ' ' then c else ' ')
+    filterChars = unwords . words . map (\c -> if isAlphaNum c || c == ' ' then c else ' ')
+
 
 toDict :: KWICState (Map.Map String [[String]])
 toDict = do
@@ -46,5 +48,5 @@ shift stopWords = Map.mapWithKey generateShifts
 
 srtd :: Map.Map String [[String]] -> [(String, String)]
 srtd kwicMap =
-    let allShifts = [(unwords shift, "from " ++ phrase) | (phrase, shifts) <- Map.toList kwicMap, shift <- shifts]
-     in sort allShifts
+    let allShifts = [(unwords shiftedPhrase, "from " ++ phrase) | (phrase, shifts) <- Map.toList kwicMap, shiftedPhrase <- shifts]
+    in sortBy (compare `on` (map toLower . fst)) allShifts

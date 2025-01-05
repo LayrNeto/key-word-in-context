@@ -21,6 +21,7 @@ description:         Please see the README on GitHub at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
+- hspec
 - containers
 - mtl
 
@@ -37,6 +38,12 @@ ghc-options:
 
 library:
   source-dirs: src
+  exposed-modules:
+    - KWIC
+  dependencies:
+    - base
+    - containers
+    - mtl
 
 executables:
   KWIC-exe:
@@ -48,6 +55,7 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - KWIC
+    - base
 
 tests:
   KWIC-test:
@@ -59,3 +67,5 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - KWIC
+    - hspec
+    - base
