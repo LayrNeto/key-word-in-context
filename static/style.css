@@ -1,0 +1,67 @@
+body{
+    font-size: 18px;
+    font-family: "Bona Nova SC", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    background-image: url(images/light-blue.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+h1{
+    font-size: 30px;
+    padding-top: 40px;
+    margin-bottom: 30px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+label{
+    font-weight: bold;
+}
+textarea {
+    margin: 0 0 20px;
+    padding: 15px 25px;
+    width: 50%;
+    font-size: 18px;
+    height: 200px;
+    border-radius: 20px;
+}
+
+button {
+    width: 20%;
+    padding: 20px 0;
+    background: #5377bffe;
+    color:rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+
+button:hover{
+    background: #4162a4fe;
+    transition: 0.5s all;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#output {
+    display: inline-flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    margin-top: 20px;        /* Adiciona margem superior */
+    white-space: pre-wrap;
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-width: 600px;        /* Define uma largura máxima */
+    width: 100%;             /* Define a largura para preencher o contêiner */
+}
