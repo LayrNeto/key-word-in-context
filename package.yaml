@@ -35,6 +35,9 @@ dependencies:
 - wai-extra
 - wai-middleware-static
 - aeson
+- bytestring
+- http-types
+- directory
 
 ghc-options:
 - -Wall

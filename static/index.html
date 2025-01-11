@@ -6,21 +6,24 @@
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
         <title>Key Word in Context</title>
-    </head> 
+    </head>
 <body>
 
     <main>
         <h1>KWIC Application</h1>
         
         <form id="kwicForm">
-            <label for="inputText">Enter Text:</label>
-            <textarea id="inputText" name="input" rows="5" cols="40"></textarea>
-            
+            <label for="fileInput">Text file:</label>
+            <input type="file" id="fileInput" name="fileInput" required><br><br>
+        
+            <label for="stopWordsInput">Stop words file (optional):</label>
+            <input type="file" id="stopWordsInput" name="stopWordsInput"><br><br>
+        
             <button type="submit">Process</button>
         </form>
 
         <div id="output">
-            <h2>Resultados aparecerão aqui</h2>
+            <h2>Results will appear here</h2>
         </div>
     </main>
 

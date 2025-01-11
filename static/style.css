@@ -26,14 +26,6 @@ form{
 label{
     font-weight: bold;
 }
-textarea {
-    margin: 0 0 20px;
-    padding: 15px 25px;
-    width: 50%;
-    font-size: 18px;
-    height: 200px;
-    border-radius: 20px;
-}
 
 button {
     width: 20%;
@@ -56,12 +48,12 @@ button:hover{
 
 #output {
     display: inline-flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center;     /* Centraliza verticalmente */
-    margin-top: 20px;        /* Adiciona margem superior */
+    justify-content: center; 
+    align-items: center;     
+    margin-top: 20px;        
     white-space: pre-wrap;
     border: 1px solid #ccc;
     padding: 10px;
-    max-width: 600px;        /* Define uma largura máxima */
-    width: 100%;             /* Define a largura para preencher o contêiner */
+    max-width: 600px;        
+    width: 100%;             
 }

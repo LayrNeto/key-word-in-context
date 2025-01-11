@@ -42,8 +42,11 @@ library
   build-depends:
       aeson
     , base
+    , bytestring
     , containers
+    , directory
     , hspec
+    , http-types
     , mtl
     , scotty
     , text
@@ -64,8 +67,11 @@ executable KWIC-web
       KWIC
     , aeson
     , base
+    , bytestring
     , containers
+    , directory
     , hspec
+    , http-types
     , mtl
     , scotty
     , text
@@ -89,8 +95,11 @@ test-suite KWIC-test
       KWIC
     , aeson
     , base
+    , bytestring
     , containers
+    , directory
     , hspec
+    , http-types
     , mtl
     , scotty
     , text
