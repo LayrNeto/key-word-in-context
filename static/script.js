@@ -2,7 +2,7 @@ document.getElementById("kwicForm").addEventListener("submit", async function (e
     event.preventDefault();
 
     const fileInput = document.getElementById("fileInput").files[0];
-    const stopWordsInput = document.getElementById("stopWordsInput").files[0]; // Optional file
+    const stopWordsInput = document.getElementById("stopWordsInput").files[0]; 
 
     if (!fileInput) {
         alert("Please select a file to process.");
@@ -13,7 +13,7 @@ document.getElementById("kwicForm").addEventListener("submit", async function (e
     formData.append("file", fileInput);
 
     if (stopWordsInput) {
-        formData.append("stopWords", stopWordsInput); // Adds the stop words file if it exists
+        formData.append("stopWords", stopWordsInput);
     }
 
     try {
@@ -30,11 +30,10 @@ document.getElementById("kwicForm").addEventListener("submit", async function (e
 
         const result = await response.text();
 
-        const parsedResult = JSON.parse(result); // Converts the JSON to an object
-        const resultsArray = parsedResult.results; // Accesses the array of results
+        const parsedResult = JSON.parse(result); 
+        const resultsArray = parsedResult.results;
         const outputDiv = document.getElementById("output");
 
-        // Formats the content to display the phrases horizontally
         outputDiv.innerHTML = resultsArray.map(line => line.trim()).join('<br>');
 
     } catch (error) {

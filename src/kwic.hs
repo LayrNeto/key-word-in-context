@@ -1,10 +1,11 @@
 module KWIC (
     KWICState,
-    readFileIntoState,
     filterCharsInState,
     toDict,
     shift,
-    srtd
+    srtd,
+    formatResult,
+    processKWIC
 ) where
 
 import System.IO()
@@ -15,11 +16,6 @@ import qualified Data.Map as Map
 import Control.Monad.State
 
 type KWICState a = StateT [String] IO a
-
-readFileIntoState :: FilePath -> KWICState ()
-readFileIntoState path = do
-    content <- liftIO $ readFile path
-    put (lines content)
 
 filterCharsInState :: KWICState ()
 filterCharsInState = do
@@ -50,3 +46,11 @@ srtd :: Map.Map String [[String]] -> [(String, String)]
 srtd kwicMap =
     let allShifts = [(unwords shiftedPhrase, "from " ++ phrase) | (phrase, shifts) <- Map.toList kwicMap, shiftedPhrase <- shifts]
     in sortBy (compare `on` (map toLower . fst)) allShifts
+
+formatResult :: (String, String) -> String
+formatResult (shifted, source) = shifted ++ " (" ++ source ++ ")"
+
+processKWIC :: [String] -> [String] -> IO [String]
+processKWIC stopWords inputPhrases =
+    execStateT (put inputPhrases >> filterCharsInState) [] >>= \filteredPhrases ->
+        evalStateT (toDict >>= \dict -> return (map formatResult (srtd (shift stopWords dict)))) filteredPhrases
