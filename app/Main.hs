@@ -16,7 +16,6 @@ import Data.Aeson (ToJSON)
 import GHC.Generics (Generic)
 import Network.HTTP.Types.Status (badRequest400)
 
--- Auxiliary data type to return a list formatted in JSON
 newtype ResultData = ResultData { results :: [String] } deriving (Show, Generic)
 
 instance ToJSON ResultData
