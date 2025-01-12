@@ -8,24 +8,47 @@
         <title>Key Word in Context</title>
     </head>
 <body>
+    <header>
+        <h1>(KWIC) Key Word in Context Application</h1>
+        <div class="line"></div>
+    </header>
 
-    <main>
-        <h1>KWIC Application</h1>
-        
-        <form id="kwicForm">
-            <label for="fileInput">Text file:</label>
-            <input type="file" id="fileInput" name="fileInput" required><br><br>
-        
-            <label for="stopWordsInput">Stop words file (optional):</label>
-            <input type="file" id="stopWordsInput" name="stopWordsInput"><br><br>
-        
-            <button type="submit">Process</button>
-        </form>
-
-        <div id="output">
-            <h2>Results will appear here</h2>
+    <main>        
+        <div class="form">
+            <div class="form-section">
+                <form id="kwicForm">
+                    <label for="fileInput">Arquivo de Texto:</label>
+                    <input type="file" id="fileInput" name="fileInput" required><br><br>
+                
+                    <label for="stopWordsInput">Arquivo de stop words (Opcional):</label>
+                    <input type="file" id="stopWordsInput" name="stopWordsInput"><br><br>
+                
+                    <button type="submit">Processar</button>
+                </form>
+            </div>
+            <div class="form-section" style="border-left: 3px solid ;">
+                <div id="output">
+                    <h2>Resultado do Processamento</h2>
+                </div>
+            </div>
         </div>
     </main>
+
+    <footer>
+        <div class="footer-container">
+        <div class="footer-section">
+            <h3>Universidade de Brasília <br>
+            Departamento de Ciências da Computação <br>
+            Campus Universitário Darcy Ribeiro, Brasília-DF | CEP 70910-900 </h3>
+        </div>
+        <div class="footer-section">
+            <h3> Alisson Vieira Neves - 221002067 <br>
+            Bruno Henrique Silva de Jesus - 211055423 <br>
+            Layr de Andrade Neto - 222001331 <br>
+            Rafael Lopes Cordeiro - 202033688 </h3>
+        </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 
